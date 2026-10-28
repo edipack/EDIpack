@@ -593,7 +593,12 @@ contains
     if (NBATH==0) bath_type = "hybrid"
     !
     !
-    allocate(Uloc_(Norb)) !#TODO: put me back!
+    if(allocated(Uloc_) .and. size(Uloc_) /= Norb)then
+      deallocate(Uloc_)
+      allocate(Uloc_(Norb))
+    elseif(.not.allocated(Uloc_))then 
+      allocate(Uloc_(Norb))
+    endif
     call parse_input_variable(uloc_,"ULOC",INPUTunit,default=(/( 2d0,i=1,Norb )/),comment="Values of the local interaction per orbital (Norb)")
     Uloc=0.d0 
     Uloc(1:Norb)=Uloc_
