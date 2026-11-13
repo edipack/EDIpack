@@ -413,10 +413,10 @@ MODULE ED_INPUT_VARS
   !
   integer              :: cg_Weight         !
   !Weight assigned to the imaginary frequency data points in the calculation of the :math:`\chi^{2}`
-  ! * :code:`0` : :math:`1`
-  ! * :code:`1` : :math:`\frac{1}{n}`
-  ! * :code:`2` : :math:`\frac{1}{\omega_{n}}`
-  ! :Default cg_Weight:`0`
+  ! * :code:`1` : :math:`1`
+  ! * :code:`2` : :math:`\frac{1}{n}`
+  ! * :code:`3` : :math:`\frac{1}{\omega_{n}}`
+  ! :Default cg_Weight:`1`
   !
   integer              :: cg_pow            !
   !Power exponent in the :math:`\chi^{2}` , according to 
